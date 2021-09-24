@@ -3598,3 +3598,11 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
   .d-print-flex { display: -webkit-box !important; display: flex !important; }
   .d-print-inline-flex { display: -webkit-inline-box !important; display: inline-flex !important; }
   .d-print-none { display: none !important; } }
+
+body, h1, .h1 { font-family: "Raleway", sans-serif; }
+
+.image-home { background-image: url("../images/leo.jpg"); height: 100vh; background-position: center; background-size: cover; }
+
+.image-about { background-image: url("../images/truck.jpg"); height: 100vh; background-position: center; background-size: cover; }
+
+.image-contact { background-image: url("../images/containers.jpg"); height: 100vh; background-position: center; background-size: cover; }
