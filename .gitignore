@@ -6,4 +6,4 @@ dist/
 
 .DS_STORE
 
-# .jekyll-cache/
+.jekyll-cache/
