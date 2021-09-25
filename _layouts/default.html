@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <title>{{ page.title }} - {{ site.title }}</title>
   {% seo %}
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"></link>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">    
 </head>
 <body>
- {% include navbar.html %}
+  {% comment %} {% include navbar.html %} {% endcomment %}
+  
   {{ content }}
-{% include footer.html %}
+  
+  {% include footer.html %}
 </body>
 </html>
