@@ -1,5 +1,7 @@
 body { background: #fff; font-family: "Comfortaa", sans-serif; position: relative; }
 
+.content { margin: 0px; padding: 0px; }
+
 footer { text-align: center; padding: 1em; max-width: 80px; position: fixed; top: 0; right: 25px; }
 
 footer a { text-decoration: none; display: inline-block; width: 45px; height: 45px; border-radius: 50%; background: transparent; border: 1px dashed #fff; color: #fff; margin: 5px; }
