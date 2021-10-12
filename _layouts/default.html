@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>{{ page.title }} - {{ site.title }}</title>
   {% seo %}
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">      
 </head>
 <body>
-  {% comment %} {% include navbar.html %} {% endcomment %}
   
   {{ content }}
   
