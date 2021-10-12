@@ -15,7 +15,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 author: Ariel Parra
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-google_analytics: UA-111111111-1
+google_analytics: UA-170932811-1
 twitter:
   username: darkaico
   card: summary #keep this to generate a twitter share card
