@@ -34,6 +34,14 @@ h1 {
   color: #00ff00; /* Neon green */
 }
 
+h2 {
+  font-family: "Orbitron", sans-serif;
+}
+
+h3 {
+  font-family: "Orbitron", sans-serif;
+}
+
 .repo-container {
   max-height: 80vh; /* Set a maximum height for the repo list */
   overflow-y: auto; /* Enable vertical scrolling */
