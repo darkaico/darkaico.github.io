@@ -4,9 +4,8 @@ import RepoList from "./RepoList";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Welcome to My GitHub Page</h1>
-      <p>Here are some of my repositories:</p>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-3xl font-bold mb-4">Welcome to my GitHub page</h1>
       <RepoList />
     </div>
   );
