@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import p5 from "p5";
 
-const ParticleCanvas: React.FC = () => {
+interface ParticleCanvasProps {
+  isActive: boolean;
+}
+
+const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
   useEffect(() => {
     const sketch = (p: p5) => {
       let particles: Particle[] = [];
@@ -12,20 +16,24 @@ const ParticleCanvas: React.FC = () => {
       };
 
       p.draw = () => {
-        p.background(0, 25); // Slightly transparent background for trailing effect
+        if (isActive) {
+          p.background(0, 25); // Slightly transparent background for trailing effect
 
-        // Create a new particle at the mouse position
-        particles.push(new Particle(p.mouseX, p.mouseY));
+          // Create a new particle at the mouse position
+          particles.push(new Particle(p.mouseX, p.mouseY));
 
-        // Update and display all particles
-        for (let i = particles.length - 1; i >= 0; i--) {
-          particles[i].update();
-          particles[i].display();
+          // Update and display all particles
+          for (let i = particles.length - 1; i >= 0; i--) {
+            particles[i].update();
+            particles[i].display();
 
-          // Remove particles that are off-screen
-          if (particles[i].isOffScreen()) {
-            particles.splice(i, 1);
+            // Remove particles that are off-screen
+            if (particles[i].isOffScreen()) {
+              particles.splice(i, 1);
+            }
           }
+        } else {
+          p.clear(); // Clear the canvas if not active
         }
       };
 
@@ -65,7 +73,7 @@ const ParticleCanvas: React.FC = () => {
     return () => {
       p5Instance.remove(); // Cleanup on unmount
     };
-  }, []);
+  }, [isActive]);
 
   return null; // This component does not render anything itself
 };
