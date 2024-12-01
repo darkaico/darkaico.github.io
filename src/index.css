@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* index.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars */
+  height: 100%;
+}
+
+#root {
+  position: relative; /* Ensure the root div is positioned correctly */
+  z-index: 1; /* Keep the root above the canvas */
+}
+
+canvas {
+  position: absolute; /* Position the canvas absolutely */
+  top: 0;
+  left: 0;
+  z-index: 0; /* Set the canvas behind other content */
+}
+
 body {
   background-color: #001f3f; /* Dark navy background */
   color: #ffffff; /* Light text */
@@ -11,6 +32,25 @@ body {
 h1 {
   font-family: "Orbitron", sans-serif;
   color: #00ff00; /* Neon green */
+}
+
+.repo-container {
+  max-height: 80vh; /* Set a maximum height for the repo list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%; /* Ensure it takes full width */
+  background-color: transparent; /* Make background fully transparent */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  padding: 20px; /* Optional: Add some padding */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.repo-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.repo-container {
+  scrollbar-width: none; /* Hide scrollbar */
 }
 
 .card {

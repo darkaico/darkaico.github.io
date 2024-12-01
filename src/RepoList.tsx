@@ -33,7 +33,7 @@ const RepoList: React.FC = () => {
   const forkedRepos = repos.filter((repo) => repo.fork);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between repo-container">
       <div className="w-1/2 pr-4">
         <h2 className="text-2xl font-bold text-green-400 mb-4">My Repositories</h2>
         {ownedRepos.map((repo) => (
