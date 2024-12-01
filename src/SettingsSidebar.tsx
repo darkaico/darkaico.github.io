@@ -1,5 +1,6 @@
 import React from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { colorPalettes } from "./colorPalettes"; // Import color palettes
 
 interface SettingsSidebarProps {
   isActive: boolean;
@@ -8,8 +9,6 @@ interface SettingsSidebarProps {
   colorPalette: string;
   setColorPalette: (palette: string) => void;
 }
-
-const colorOptions = ["matrix", "marvel"];
 
 const SettingsSidebar: React.FC<SettingsSidebarProps> = ({
   isActive,
@@ -39,9 +38,14 @@ const SettingsSidebar: React.FC<SettingsSidebarProps> = ({
           onChange={(e) => setColorPalette(e.target.value)}
           className="border rounded p-1 bg-white text-gray-800"
         >
-          {colorOptions.map((option) => (
+          {Object.keys(colorPalettes).map((option) => (
             <option key={option} value={option}>
-              {option.charAt(0).toUpperCase() + option.slice(1)}
+              {option
+                .replace(/([A-Z])/g, " $1")
+                .trim()
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}
             </option>
           ))}
         </select>

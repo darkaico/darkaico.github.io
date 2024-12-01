@@ -1,23 +1,11 @@
 import React, { useEffect } from "react";
 import p5 from "p5";
+import { colorPalettes } from "./colorPalettes"; // Import color palettes
 
 interface ParticleCanvasProps {
   isActive: boolean;
   colorPalette: keyof typeof colorPalettes;
 }
-
-const colorPalettes = {
-  matrix: [
-    "rgba(0, 255, 0, 1)", // Green
-    "rgba(0, 128, 0, 1)", // Dark Green
-    "rgba(0, 255, 255, 1)", // Cyan
-  ],
-  marvel: [
-    "rgba(255, 0, 0, 1)", // Red
-    "rgba(255, 215, 0, 1)", // Gold
-    "rgba(0, 0, 255, 1)", // Blue
-  ],
-};
 
 const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive, colorPalette }) => {
   useEffect(() => {
