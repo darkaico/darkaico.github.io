@@ -7,7 +7,7 @@ interface SettingsSidebarProps {
   toggleParticles: () => void;
   isOpen: boolean;
   colorPalette: string;
-  setColorPalette: (palette: string) => void;
+  setColorPalette: (palette: keyof typeof colorPalettes) => void;
 }
 
 const SettingsSidebar: React.FC<SettingsSidebarProps> = ({
@@ -35,7 +35,7 @@ const SettingsSidebar: React.FC<SettingsSidebarProps> = ({
         <label className="block text-gray-700 text-sm mb-1">Particles Color:</label>
         <select
           value={colorPalette}
-          onChange={(e) => setColorPalette(e.target.value)}
+          onChange={(e) => setColorPalette(e.target.value as keyof typeof colorPalettes)}
           className="border rounded p-1 bg-white text-gray-800"
         >
           {Object.keys(colorPalettes).map((option) => (

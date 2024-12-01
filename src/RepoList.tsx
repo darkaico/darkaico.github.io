@@ -30,7 +30,7 @@ const RepoList: React.FC = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       const username = "darkaico"; // Your GitHub username
-      const url = `https://api.github.com/users/${username}/repos`;
+      const url = `https://api.github.com/users/${username}/repos?sort=updated`;
       try {
         const response = await fetch(url);
         const data = await response.json();

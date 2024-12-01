@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import RepoList from "./RepoList";
 import ParticleCanvas from "./ParticleCanvas";
 import SettingsSidebar from "./SettingsSidebar";
+import { colorPalettes } from "./colorPalettes";
 
 const App: React.FC = () => {
   const [isParticlesActive, setIsParticlesActive] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [colorPalette, setColorPalette] = useState("matrix");
+  const [colorPalette, setColorPalette] = useState<keyof typeof colorPalettes>("matrix");
 
   const toggleParticles = () => {
     setIsParticlesActive(!isParticlesActive);
