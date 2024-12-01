@@ -3,9 +3,23 @@ import p5 from "p5";
 
 interface ParticleCanvasProps {
   isActive: boolean;
+  colorPalette: keyof typeof colorPalettes;
 }
 
-const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
+const colorPalettes = {
+  matrix: [
+    "rgba(0, 255, 0, 1)", // Green
+    "rgba(0, 128, 0, 1)", // Dark Green
+    "rgba(0, 255, 255, 1)", // Cyan
+  ],
+  marvel: [
+    "rgba(255, 0, 0, 1)", // Red
+    "rgba(255, 215, 0, 1)", // Gold
+    "rgba(0, 0, 255, 1)", // Blue
+  ],
+};
+
+const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive, colorPalette }) => {
   useEffect(() => {
     const sketch = (p: p5) => {
       let particles: Particle[] = [];
@@ -51,10 +65,8 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
         }
 
         getRandomColor() {
-          const green = Math.floor(Math.random() * 256); // Random green value
-          const red = Math.floor(Math.random() * 50); // Low red value for dark effect
-          const blue = Math.floor(Math.random() * 50); // Low blue value for dark effect
-          return `rgba(${red}, ${green}, ${blue}, ${this.lifespan / 255})`; // Use lifespan for opacity
+          const colors = colorPalettes[colorPalette]; // Get colors from the selected palette
+          return colors[Math.floor(Math.random() * colors.length)]; // Randomly select a color
         }
 
         update() {
@@ -82,7 +94,7 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
     return () => {
       p5Instance.remove(); // Cleanup on unmount
     };
-  }, [isActive]);
+  }, [isActive, colorPalette]);
 
   return null; // This component does not render anything itself
 };

@@ -7,6 +7,7 @@ import SettingsSidebar from "./SettingsSidebar";
 const App: React.FC = () => {
   const [isParticlesActive, setIsParticlesActive] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [colorPalette, setColorPalette] = useState("matrix");
 
   const toggleParticles = () => {
     setIsParticlesActive(!isParticlesActive);
@@ -18,7 +19,7 @@ const App: React.FC = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen">
-      <ParticleCanvas isActive={isParticlesActive} />
+      <ParticleCanvas isActive={isParticlesActive} colorPalette={colorPalette} />
       <div className="relative z-10 flex flex-col items-center w-full px-4">
         <h1 className="text-4xl font-bold mb-8 mt-8 text-center">Welcome to my GitHub page</h1>
         <RepoList />
@@ -27,6 +28,8 @@ const App: React.FC = () => {
         isActive={isParticlesActive}
         toggleParticles={toggleParticles}
         isOpen={isSidebarOpen}
+        colorPalette={colorPalette}
+        setColorPalette={setColorPalette}
       />
       <button
         onClick={toggleSidebar}
