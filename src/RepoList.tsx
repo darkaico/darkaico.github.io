@@ -28,16 +28,25 @@ const RepoList: React.FC = () => {
   }, []);
 
   return (
-    <ul id="repo-list">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {repos.map((repo) => (
-        <li key={repo.id}>
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            {repo.name}
-          </a>{" "}
-          - {repo.description || "No description available."}
-        </li>
+        <div
+          key={repo.id}
+          className="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+        >
+          <h2 className="text-xl font-bold text-green-400">{repo.name}</h2>
+          <p className="text-gray-300">{repo.description || "No description available."}</p>
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline mt-2 block"
+          >
+            Visit Repository
+          </a>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
