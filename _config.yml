@@ -1,21 +1,6 @@
+title: My GitHub Page
+description: A simple page showcasing my GitHub repositories.
+baseurl: ""
+url: "https://darkaico.github.io"
 
-
-sass:
-  sass_dir: assets/css
-
-plugins:
-  - jekyll-autoprefixer
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
-title: "Darkaico GH Pages"
-tagline: "Something about me"
-email: "darkaico@gmail.com"
-description: >- # this means to ignore newlines until "baseurl:"
-author: Ariel Parra
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-google_analytics: UA-170932811-1
-twitter:
-  username: darkaico
-  card: summary #keep this to generate a twitter share card
+theme: minima # A simple and clean theme
