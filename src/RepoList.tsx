@@ -9,6 +9,21 @@ interface Repo {
   fork: boolean;
 }
 
+const RepoItem: React.FC<{ repo: Repo }> = ({ repo }) => (
+  <div className="p-2 mb-4 bg-gray-800 rounded-lg shadow-md">
+    <h3 className="text-lg font-bold truncate">{repo.name}</h3>
+    <p className="text-gray-300 text-sm">{repo.description || "No description available."}</p>
+    <a
+      href={repo.html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-500 hover:underline mt-1 block"
+    >
+      Visit Repository
+    </a>
+  </div>
+);
+
 const RepoList: React.FC = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
 
@@ -33,43 +48,17 @@ const RepoList: React.FC = () => {
   const forkedRepos = repos.filter((repo) => repo.fork);
 
   return (
-    <div className="flex justify-between repo-container">
-      <div className="w-1/2 pr-4">
+    <div className="flex flex-col md:flex-row justify-between repo-container w-full">
+      <div className="w-full md:w-1/2 pr-4 mb-4 md:mb-0">
         <h2 className="text-2xl font-bold text-green-400 mb-4">My Repositories</h2>
         {ownedRepos.map((repo) => (
-          <div key={repo.id} className="p-2 mb-4 bg-gray-800 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold">{repo.name}</h3>
-            <p className="text-gray-300 text-sm">
-              {repo.description || "No description available."}
-            </p>
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline mt-1 block"
-            >
-              Visit Repository
-            </a>
-          </div>
+          <RepoItem key={repo.id} repo={repo} />
         ))}
       </div>
-      <div className="w-1/2 pl-4">
+      <div className="w-full md:w-1/2 pr-4 mb-4 md:mb-0">
         <h2 className="text-2xl font-bold text-yellow-400 mb-4">Forked Repositories</h2>
         {forkedRepos.map((repo) => (
-          <div key={repo.id} className="p-2 mb-4 bg-gray-700 rounded-lg shadow-md">
-            <h3 className="text-lg font-bold">{repo.name}</h3>
-            <p className="text-gray-300 text-sm">
-              {repo.description || "No description available."}
-            </p>
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline mt-1 block"
-            >
-              Visit Repository
-            </a>
-          </div>
+          <RepoItem key={repo.id} repo={repo} />
         ))}
       </div>
     </div>
