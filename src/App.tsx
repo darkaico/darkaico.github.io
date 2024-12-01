@@ -5,7 +5,7 @@ import ParticleCanvas from "./ParticleCanvas";
 import SettingsSidebar from "./SettingsSidebar";
 
 const App: React.FC = () => {
-  const [isParticlesActive, setIsParticlesActive] = useState(true);
+  const [isParticlesActive, setIsParticlesActive] = useState(false);
 
   const toggleParticles = () => {
     setIsParticlesActive(!isParticlesActive);

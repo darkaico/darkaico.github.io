@@ -9,32 +9,15 @@ interface SettingsSidebarProps {
 const SettingsSidebar: React.FC<SettingsSidebarProps> = ({ isActive, toggleParticles }) => {
   return (
     <div
-      style={{
-        position: "absolute",
-        top: "20px",
-        right: "20px",
-        width: "150px",
-        background: "#f0f0f0", // Light gray background
-        borderRadius: "5px",
-        padding: "10px",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
-        zIndex: 1000, // Ensure it is on top of everything
-      }}
+      className="absolute top-5 right-5 w-36 bg-gray-200 rounded-md p-2 shadow-lg z-50" // Tailwind CSS classes
     >
-      <h3 style={{ color: "#333", margin: "0 0 10px 0" }}>Settings</h3>
+      <h3 className="text-gray-800 text-sm font-semibold mb-2">Settings</h3>
       <button
         onClick={toggleParticles}
-        style={{
-          background: "transparent",
-          border: "none",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          color: "#007BFF", // Button text color
-        }}
+        className="bg-transparent border-none cursor-pointer flex items-center text-blue-500"
       >
         {isActive ? <FaPause /> : <FaPlay />} {/* Use icons for on/off */}
-        <span style={{ marginLeft: "5px" }}>{isActive ? "Stop Particles" : "Start Particles"}</span>
+        <span className="ml-2">{isActive ? "Stop Particles" : "Start Particles"}</span>
       </button>
       {/* Additional toggle buttons for other settings can be added here */}
     </div>
