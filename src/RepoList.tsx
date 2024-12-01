@@ -37,14 +37,16 @@ const RepoList: React.FC = () => {
       <div className="w-1/2 pr-4">
         <h2 className="text-2xl font-bold text-green-400 mb-4">My Repositories</h2>
         {ownedRepos.map((repo) => (
-          <div key={repo.id} className="p-4 mb-4 bg-gray-800 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold">{repo.name}</h3>
-            <p className="text-gray-300">{repo.description || "No description available."}</p>
+          <div key={repo.id} className="p-2 mb-4 bg-gray-800 rounded-lg shadow-md">
+            <h3 className="text-lg font-bold">{repo.name}</h3>
+            <p className="text-gray-300 text-sm">
+              {repo.description || "No description available."}
+            </p>
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline mt-2 block"
+              className="text-blue-500 hover:underline mt-1 block"
             >
               Visit Repository
             </a>
@@ -54,14 +56,16 @@ const RepoList: React.FC = () => {
       <div className="w-1/2 pl-4">
         <h2 className="text-2xl font-bold text-yellow-400 mb-4">Forked Repositories</h2>
         {forkedRepos.map((repo) => (
-          <div key={repo.id} className="p-4 mb-4 bg-gray-700 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold">{repo.name}</h3>
-            <p className="text-gray-300">{repo.description || "No description available."}</p>
+          <div key={repo.id} className="p-2 mb-4 bg-gray-700 rounded-lg shadow-md">
+            <h3 className="text-lg font-bold">{repo.name}</h3>
+            <p className="text-gray-300 text-sm">
+              {repo.description || "No description available."}
+            </p>
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline mt-2 block"
+              className="text-blue-500 hover:underline mt-1 block"
             >
               Visit Repository
             </a>
