@@ -41,11 +41,20 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
         position: p5.Vector;
         velocity: p5.Vector;
         lifespan: number;
+        color: string;
 
         constructor(x: number, y: number) {
           this.position = p.createVector(x, y);
           this.velocity = p5.Vector.random2D();
           this.lifespan = 255; // Particle lifespan
+          this.color = this.getRandomColor(); // Assign a random color
+        }
+
+        getRandomColor() {
+          const green = Math.floor(Math.random() * 256); // Random green value
+          const red = Math.floor(Math.random() * 50); // Low red value for dark effect
+          const blue = Math.floor(Math.random() * 50); // Low blue value for dark effect
+          return `rgba(${red}, ${green}, ${blue}, ${this.lifespan / 255})`; // Use lifespan for opacity
         }
 
         update() {
@@ -54,7 +63,7 @@ const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ isActive }) => {
         }
 
         display() {
-          p.fill(255, this.lifespan);
+          p.fill(this.color); // Use the assigned color
           p.ellipse(this.position.x, this.position.y, 12);
         }
 
