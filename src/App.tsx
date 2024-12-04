@@ -35,8 +35,8 @@ const App: React.FC = () => {
       <button
         onClick={toggleSidebar}
         className={`absolute top-1/2 right-0 z-50 ${
-          isSidebarOpen ? "bg-neon-green" : "bg-gray-500"
-        } text-white p-2 flex flex-col items-center transform -translate-y-1/2 rounded-l`}
+          isSidebarOpen ? "bg-green-500 text-white" : "bg-gray-300 text-gray-600"
+        }  p-2 flex flex-col items-center transform -translate-y-1/2 rounded-l shadow-lg transition-transform duration-200 hover:scale-105`}
       >
         <span>S</span>
         <span>E</span>
